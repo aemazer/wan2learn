@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<head>
+	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
+	<title> Welcome to Wan2Learn! Teach Anything. Learn Anything. </title>
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>
+				<img src="images/wan2learnlogo.png">
+			</td>
+			<td>
+				<a id="topText">I want to learn from somewone who is...</a>
+			</td>
+		</tr>
+	</table>
+<!--A table has been created to be able to position divs and images side by side-->	
+<table id="table">
+	<tr>
+		<td>
+			<div id="searchbox">
+				<label for="bluesearch" class="label">I want to learn...</label>
+				<br />
+				<input type = "textarea" name = "search" value = "Search" id="bluesearch" />
+				<input type = "submit" value = ">>Teach Me!" id="bluesearchsubmit" />
+				<br />
+				<br />
+				<label for="teachbutton" class="label">I want to teach...</label>
+				<br />
+				<input type = "button" value = "Let's Begin!" id="teachbutton">
+			</div>
+			<br />
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+		<td>
+			<div id="localDiv">
+				<a href="dummypage.html" class="fill-div"></a>	
+				<a class="largeText">Local</a>
+			</div>
+			<br />
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+		<td >
+			<div id="globalDiv">
+				<a href="dummypage.html" class="fill-div"></a>	
+				<a class="largeText">Global</a>
+			</div>
+			<br />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br />
+			<div id="loginbox">
+				<label for="signin" class="label">Sign in!</label> <br />
+				<a class="text">Username: </a><input type = "textarea" id="username" />
+				<br />
+				<br />
+				<a class="text">Password: </a><input type = "textarea" id ="password" />
+				<input type="button" value="Sign me in!" id="signinbutton" />
+				<br />
+				<br />
+				<a class = "text" style="position: realative; left: 100px;">Or</a>
+				<input type = "button" value = "Register!" id="registerbutton" />
+				<br />
+				<p id="links">|<a href="dummypage.html">Contact Us</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About Us</a>|</p>
+			</div>
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+		<td colspan=3>
+			<br />
+			<div id="quoteDiv">
+				<p id="quote">
+					Wan2learn is dedicated to connecting students and teachers all over the world who share the same passion for knowledge. Visit our <a href="dummypage.html">About Page</a> to learn more.
+				</p>
+			</div>
+		</td>
+	</tr>
+</table>
+</body>

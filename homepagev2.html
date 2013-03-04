@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<head>
+	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
+	<title> Welcome to Wan2Learn! Teach Anything. Learn Anything. </title>
+</head>
+
+<body>
+	<img src="images/wan2learnlogo.png">
+<!--A table has been created to be able to position divs and images side by side-->	
+<table id="table">
+	<tr>
+		<td>
+			<div id="searchbox">
+				<label for="bluesearch" class="label">I want to learn...</label>
+				<br />
+				<input type = "textarea" name = "search" value = "Search" id="bluesearch" />
+				<input type = "submit" value = "Search" id="bluesearchsubmit" />
+				<br />
+				<br />
+				<label for="teachbutton" class="label">I want to teach...</label>
+				<br />
+				<input type = "button" value = "Let's Begin!" id="teachbutton">
+			</div>
+			<br />
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+		<td>
+			<a href="dummypage.html"><div id="localwithPic">
+				<img src="images/whiteHouse.jpeg">
+				<a class="largeText">Local</a>
+			</div>
+			<br />
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+		<td >
+			<a href="dummypage.html"><div id="globalwithPic">
+				<img src="images/globe.png" width="140" height="140" hspace="10">
+				<a class="largeText">Global</a>
+			</div>
+			<br />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<br />
+			<div id="loginbox">
+				<label for="signin" class="label">Sign in!</label> <br />
+				<a class="text">Username: </a><input type = "textarea" name = "username" id="username" />
+				<br />
+				<a class="text">Password: </a><input type = "textarea" name = "password" id ="password" />
+				<input type="button" value="Sign me in!" id="signinbutton" />
+				<a class = "text" style="position: realative; left: 100px;">Or</a>
+				<input type = "button" value = "Register!" id="registerbutton" />
+			</div>
+		</td>
+		<td >
+			<div class="blankDiv"></div>
+		</td>
+	</tr>
+</table>
+</body>
