@@ -96,15 +96,15 @@ html{
 	border-radius: 5px;
 }
 #localwithPic{
-	height: 175px;
-	width: 160px;
+	height: 200px;
+	width: 230px;
 	background-color: #0093C6;
 	padding: 15px;
 	border-radius: 20px;
 }
 #globalwithPic{
-	height: 175px;
-	width: 160px;
+	height: 200px;
+	width: 230px;
 	background-color: #FE591C;
 	padding: 15px;
 	border-radius: 20px;
@@ -120,6 +120,7 @@ html{
 	color: white;
 	font-size: 30px;
 	z-index: 1000;
+
 }
 #localDiv{
 	height: 200px;
