@@ -3,7 +3,7 @@ html{
 }
 #table{
 	position: relative;
-	left: 120px;
+	left: 340px;
 
 }
 #maindiv{
@@ -15,7 +15,7 @@ html{
 #searchbox{
 	padding: 15px;
 	height: 200px;
-	width: 370px;
+	width: 300px;
 	background-color: #0093C6;
 	border-radius: 20px;
 }
@@ -57,7 +57,7 @@ html{
 	background-color: #FE591C;
 	padding: 15px;
 	height: 200px;
-	width: 370px;
+	width: 300px;
 	border-radius: 20px;
 }
 .text{
@@ -95,16 +95,16 @@ html{
 	width: 90px;
 	border-radius: 5px;
 }
-#localwithPic{
+#localDiv{
 	height: 200px;
-	width: 230px;
+	width: 300px;
 	background-color: #0093C6;
 	padding: 15px;
 	border-radius: 20px;
 }
-#globalwithPic{
+#globalDiv{
 	height: 200px;
-	width: 230px;
+	width: 300px;
 	background-color: #FE591C;
 	padding: 15px;
 	border-radius: 20px;
@@ -122,14 +122,14 @@ html{
 	z-index: 1000;
 
 }
-#localDiv{
+#localwithPic{
 	height: 200px;
 	width: 230px;
 	background-image: url("images/monterey-oceanfront.jpg");
 	padding: 15px;
 	border-radius: 20px;
 }
-#globalDiv{
+#globalwithPic{
 	height: 200px;
 	width: 230px;
 	background-image: url("images/earth-at-night.jpg");
@@ -153,16 +153,27 @@ a.fill-div {
 	color: white;
 	font-size: 26px;
 }
-#links{
+.links{
 	font-size: 15px;
 	position: relative;
 	left: 10px;
+}
+#links2{
+	position: relative;
+	left: 35px;
+}
+#linksDiv{
+	background-color: #FE591C;
+	padding-right: 15px;
+	position: relative;
+	bottom: 20px;
+	border-radius: 5px;
 }
 #topText{
 	color: #0093C6;
 	font-size: 25px;
 	position: relative;
-	left: 190px;
+	left: 50px;
 	top: 40px;
 }
 a:link {color: white}
