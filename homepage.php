@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 <head>
 	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
+	<?php 
+		require 'config.php';
+	?>
 	<title> Welcome to Wan2Learn! Teach Anything. Learn Anything. </title>
 </head>
 
@@ -16,11 +19,7 @@
 			<td>
 				<div id = "linksDiv">
 					<p class="links">|<a href="dummypage.html">Contact Us</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|</p>
-<<<<<<< HEAD
-					<p class="links" id="links2">|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About Us</a>|<a href="dummypage.html">Register</a>|</p>
-=======
 					<p class="links" id="links2">|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About Us</a>|<a href="register.php">Register</a>|</p>
->>>>>>> Registration Works
 				</div>
 			</td>
 		</tr>
@@ -50,14 +49,16 @@
 		<td>
 			<br />
 			<div id="loginbox">
-				<label for="signin" class="label">Sign in!</label> <br />
-				<a class="text">Username: </a><input type = "textarea" id="username" />
-				<br />
-				<br />
-				<a class="text">Password: </a><input type = "textarea" id ="password" />
-				<input type="button" value="Sign me in!" id="signinbutton" />
-				<br />
-				<br />
+			 	<form name="form1" method="post" action="checklogin">
+					<label for="signin" class="label">Sign in!</label> <br />
+					<a class="text">Username: </a><input type = "textarea" id="username" />
+					<br />
+					<br />
+					<a class="text">Password: </a><input type = "textarea" id ="password" />
+					<input type="submit" value="Sign me in!" id="signinbutton" />
+					<br />
+					<br />
+				</form>
 			</div>
 		</td>
 		<td >
