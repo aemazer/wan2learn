@@ -77,46 +77,6 @@ html{
 	width: 170px;
 	height: 20px;
 }
-<<<<<<< HEAD
-#bluesearchsubmit{
-	position: relative;
-	left: 15px;
-	top: 2px;
-	border-radius: 5px;
-	background-color: white;
-	height: 25px;
-	width: 100px;
-	font-size: 10px;
-
-}
-#teachbutton{
-	position:relative;
-	left: 50px;
-	color: #FE591C;
-	background-color: white;
-	border-radius: 5px;
-	height: 25px;
-	width: 100px;
-	font-size: 12px;
-}
-.label{
-	color: white;
-	font-size: 30px;
-
-}
-#loginbox{
-	background-color: #FE591C;
-	padding: 15px;
-	height: 200px;
-	width: 300px;
-	border-radius: 20px;
-}
-.text{
-	font-family: 'century gothic', 'futura', 'arial', 'helvetica', 'sans-serif';
-	color: white;
-}
-=======
->>>>>>> Registration Works
 #username{
 	border-radius: 5px;
 	color: gray;
@@ -195,26 +155,10 @@ html{
 	width: 90px;
 	border-radius: 5px;
 }
-<<<<<<< HEAD
-#localDiv{
-	height: 200px;
-	width: 300px;
-	background-color: #0093C6;
-	padding: 15px;
-	border-radius: 20px;
-}
-#globalDiv{
-	height: 200px;
-	width: 300px;
-	background-color: #FE591C;
-	padding: 15px;
-	border-radius: 20px;
-=======
 /* ***text*** */
 .label{
 	color: white;
 	font-size: 30px;
->>>>>>> Registration Works
 }
 
 .text{
@@ -226,10 +170,7 @@ html{
 	color: white;
 	font-size: 30px;
 	z-index: 1000;
-
 }
-<<<<<<< HEAD
-=======
 #topText{
 	color: #0093C6;
 	font-size: 25px;
@@ -244,7 +185,6 @@ html{
 }
 
 /*css for second homepage idea*/
->>>>>>> Registration Works
 #localwithPic{
 	height: 200px;
 	width: 230px;
@@ -282,27 +222,8 @@ a.fill-div {
 	left: 10px;
 }
 #links2{
-<<<<<<< HEAD
 	position: relative;
 	left: 35px;
-}
-#linksDiv{
-	background-color: #FE591C;
-	padding-right: 15px;
-	position: relative;
-	bottom: 20px;
-	border-radius: 5px;
-}
-#topText{
-	color: #0093C6;
-	font-size: 25px;
-	position: relative;
-	left: 50px;
-	top: 40px;
-=======
-	position: relative;
-	left: 35px;
->>>>>>> Registration Works
 }
 
 
