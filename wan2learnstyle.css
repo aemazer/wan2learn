@@ -7,7 +7,7 @@ html{
 
 }
 #maindiv{
-	border: 5px solid #0093C6;
+	border: 5px solid #06AFEF;
 	height: 550px;
 	width: 1100px;
 	padding: 20px;
@@ -17,20 +17,20 @@ html{
 	padding: 15px;
 	height: 200px;
 	width: 300px;
-	background-color: #0093C6;
+	background-color: #06AFEF;
 	border-radius: 15px;
-	background-color: rgba(0,147,194,1); 
+	background-color: rgba(6, 175, 239, 1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
              inset 0 -15px 30px rgba(0,0,0,0.4),
              0 5px 10px rgba(0,0,0,0.5);
 }
 #loginbox{
-	background-color: #FE591C;
+	background-color: #EF2E32;
 	padding: 15px;
 	height: 200px;
 	width: 300px;
 	border-radius: 15px;
-	background-color: rgba(254,89,28, 1); 
+	background-color: rgba(239,46,50, 1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
     	        inset 0 -15px 30px rgba(0,0,0,0.4),
              			0 5px 10px rgba(0,0,0,0.5);
@@ -38,10 +38,10 @@ html{
 #globalDiv{
 	height: 200px;
 	width: 300px;
-	background-color: #FE591C;
+	background-color: #EF2E32;
 	padding: 15px;
 	border-radius: 15px;
-	background-color: rgba(254,89,28,1); 
+	background-color: rgba(239,46,50,1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
              inset 0 -15px 30px rgba(0,0,0,0.4),
              0 5px 10px rgba(0,0,0,0.5);
@@ -51,17 +51,18 @@ html{
 	width: 300px;
 	padding: 15px;
 	border-radius: 15px;
-	background-color: rgba(0,147,194,1); 
+	background-color: rgba(6, 175, 239, 1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
              	inset 0 -15px 30px rgba(0,0,0,0.4),
             			0 5px 10px rgba(0,0,0,0.5);
 }
 #linksDiv{
-	background-color: #FE591C;
+	background-color: #EF2E32;
 	padding: 1px;
 	padding-right: 15px;
 	position: relative;
 	bottom: 20px;
+	left: 70px;
 	border-radius: 15px;
  	background-color: rgba(0,0,0,0.1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0.2), 
@@ -98,14 +99,16 @@ html{
 	margin-left:20px; 
 	width: 10em; 
 	padding: 10px; 
-	border: 2px solid #FE591C; 
+	border: 2px solid #EF2E32; 
+	position: relative;
+	top: 7px;
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px; 
 	border-radius: 5px; 
 	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #FE591C;
+	color: #EF2E32;
 	background: white; 
 	font-weight: bold; 
 	-webkit-appearance: none; 
@@ -117,14 +120,16 @@ html{
 	margin-left:20px; 
 	width: 10em; 
 	padding: 10px; 
-	border: 2px solid #FE591C; 
+	position: relative;
+	top: 7px;
+	border: 2px solid #EF2E32; 
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px; 
 	border-radius: 5px; 
 	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #FE591C;
+	color: #EF2E32;
 	background: white; 
 	font-weight: bold; 
 	-webkit-appearance: none; 
@@ -135,14 +140,17 @@ html{
 	margin-left:20px; 
 	width: 10em; 
 	padding: 10px; 
-	border: 2px solid #0093C6; 
+	position: relative;
+	top: 10px;
+	left: 70px;
+	border: 2px solid #06AFEF; 
 	-moz-border-radius: 5px; 
 	-webkit-border-radius: 5px; 
 	border-radius: 5px; 
 	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
 	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #0093C6;
+	color: #06AFEF;
 	background: white; 
 	font-weight: bold; 
 	-webkit-appearance: none; 
@@ -172,7 +180,7 @@ html{
 	z-index: 1000;
 }
 #topText{
-	color: #0093C6;
+	color: #06AFEF;
 	font-size: 25px;
 	position: relative;
 	left: 50px;

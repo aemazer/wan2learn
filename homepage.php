@@ -11,7 +11,7 @@
 	<table>
 		<tr>
 			<td>
-				<img src="images/wan2learnlogo.png">
+				<img src="images/wan2learnlogoNew.png">
 			</td>
 			<td>
 				<a id="topText">I want to learn from somewone who is...</a>
@@ -29,7 +29,7 @@
 	<tr>
 		<td>
 			<a href="dummypage.html"><div id="localDiv">
-				<img src="images/whiteHouse.jpeg">
+				<img src="images/whiteHouseT.png">
 				<a class="largeText">Local</a>
 			</div></a>
 			<br />
@@ -71,7 +71,6 @@
 				<br />
 				<input type = "textarea" name = "search" value = "Search" id="bluesearch" />
 				<input type = "submit" value = ">>Teach Me!" id="bluesearchsubmit" />
-				<br />
 				<br />
 				<label for="teachbutton" class="label">I want to teach...</label>
 				<br />
