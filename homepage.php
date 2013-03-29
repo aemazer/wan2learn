@@ -8,24 +8,14 @@
 </head>
 
 <body>
-	<table>
-		<tr>
-			<td>
-				<img src="images/wan2learnlogoNew.png">
-			</td>
-			<td>
-				<a id="topText">I want to learn from somewone who is...</a>
-			</td>
-			<td>
-				<div id = "linksDiv">
-					<p class="links">|<a href="dummypage.html">Contact Us</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|</p>
-					<p class="links" id="links2">|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About Us</a>|<a href="register.php">Register</a>|</p>
-				</div>
-			</td>
-		</tr>
-	</table>
+	<div id = "wrapper">
+		<div id = "logoDiv"><img src="images/wan2learnlogoNew.png"></div>
+		<div id = "linksDiv">
+			<p class="links">|<a href="dummypage.html">Contact</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About</a>|<a href="register.php">Register</a>|</p>
+		</div>
 <!--A table has been created to be able to position divs and images side by side-->	
 <table id="table">
+	<th colspan = "3"><a id="topText">I want to learn from someone who is...</a></th>
 	<tr>
 		<td>
 			<a href="dummypage.html"><div id="localDiv">
@@ -79,4 +69,5 @@
 		</td>
 	</tr>
 </table>
+</div>
 </body>
