@@ -196,6 +196,9 @@ html{
 	height: 175px;
 	background-color: none;
 }
+#tableDiv{
+	width: 715px;
+}
 
 /*css for second homepage idea*/
 #localwithPic{

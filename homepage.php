@@ -14,24 +14,41 @@
 			<p class="links">|<a href="dummypage.html">Contact</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About</a>|<a href="register.php">Register</a>|</p>
 		</div>
 <!--A table has been created to be able to position divs and images side by side-->	
+<div id = "tableDiv"><!--this div is for the benifit of IE only. -->
 <table id="table">
 	<th colspan = "3"><a id="topText">I want to learn from someone who is...</a></th>
 	<tr>
 		<td>
+			<!--[if IE]>
+			<div id="localDiv">
+				<img src="images/whiteHouseT.png">
+				<a class="largeText">Local</a>
+			</div>
+			<![endif]-->
+			<!--[if !IE]>-->
 			<a href="dummypage.html"><div id="localDiv">
 				<img src="images/whiteHouseT.png">
 				<a class="largeText">Local</a>
 			</div></a>
+			<!--<![endif]-->
 			<br />
 		</td>
 		<td >
 			<div class="blankDiv"></div>
 		</td>
 		<td >
+			<!--[if IE]>
+			<div id="globalDiv">
+				<img src="images/globe.png">
+				<a class="largeText">Global</a>
+			</div>
+			<![endif]-->
+			<!--[if !IE]>-->
 			<a href="dummypage.html"><div id="globalDiv">
 				<img src="images/globe.png">
 				<a class="largeText">Global</a>
 			</div></a>
+			<!--<![endif]-->
 			<br />
 		</td>
 	</tr>
@@ -69,5 +86,6 @@
 		</td>
 	</tr>
 </table>
+</div>
 </div>
 </body>
