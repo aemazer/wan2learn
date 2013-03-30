@@ -58,10 +58,12 @@
 			<div id="loginbox">
 			 	<form name="form1" method="post" action="checklogin">
 					<label for="signin" class="label">Sign in!</label> <br />
-					<a class="text">Username: </a><input type = "textarea" id="username" />
+					<a class="text">Username: </a>
+					<input type="text" maxlength="30" required autofocus name="username" id="username" />
 					<br />
 					<br />
-					<a class="text">Password: </a><input type = "textarea" id ="password" />
+					<a class="text">Password: </a>
+					<input type="password" maxlength="30" required name="password" id="password"/>
 					<input type="submit" value="Sign me in!" id="signinbutton" />
 					<br />
 					<br />

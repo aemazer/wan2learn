@@ -10,7 +10,7 @@
 
 	    <header id="head" > 
 	    	<p>Wan2Learn User Registration</p> 
-	    	<p><a href="Wan2LearnHomepage.html"><span id="homepage">Homepage</span></a></p>
+	    	<p><a href="homepage.php"><span id="homepage">Homepage</span></a></p>
 	    </header> 
 	   
 	   	<div id="main-wrapper"> 
