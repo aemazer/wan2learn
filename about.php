@@ -1,24 +1,27 @@
 <!DOCTYPE HTML>
 <head>
+	<title>About Wan2Learn</title>
 	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
 	<?php 
-		require 'config.php';
 		require 'common.php';
 	?>
-	<title> Welcome to Wan2Learn! Teach Anything. Learn Anything. </title>
 </head>
+
+
+
 <body>
-	<div id = "wrapper">
+
+<div id="wrapper">
 		<?php
-		   	if(!empty($_POST['signIn'])){
-				checkLogin();
+		   	if(session_is_registered($username)){
 				showHeaderLoggedIn();
 			}
 			else{
 				showHeader();
 			}
-	   		
-			showMainPage();
+			showAboutPage();
 		?>
-	</div>
+</div>
+
+
 </body>

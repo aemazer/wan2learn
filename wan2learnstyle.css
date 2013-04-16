@@ -17,7 +17,7 @@ html{
 }
 #searchbox{
 	padding: 15px;
-	height: 200px;
+	height: 150px;
 	width: 300px;
 	background-color: #06AFEF;
 	border-radius: 15px;
@@ -29,7 +29,7 @@ html{
 #loginbox{
 	background-color: #EF2E32;
 	padding: 15px;
-	height: 200px;
+	height: 150px;
 	width: 300px;
 	border-radius: 15px;
 	background-color: rgba(239,46,50, 1); 
@@ -37,8 +37,8 @@ html{
     	        inset 0 -15px 30px rgba(0,0,0,0.4),
              			0 5px 10px rgba(0,0,0,0.5);
 }
-#globalDiv{
-	height: 200px;
+#localDiv{
+	height: 150px;
 	width: 300px;
 	background-color: #EF2E32;
 	padding: 15px;
@@ -56,8 +56,8 @@ html{
 	margin-left: auto;
 
 }
-#localDiv{
-	height: 200px;
+#globalDiv{
+	height: 150px;
 	width: 300px;
 	padding: 15px;
 	border-radius: 15px;
@@ -74,6 +74,16 @@ html{
 	left: 130px;
 	/*right: 50px;*/
 }
+#aboutdiv{
+	height: 280px;
+	width: 280px;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: rgba(6, 175, 239, 1); 
+ 	box-shadow: inset 0 50px rgba(255,255,255,0), 
+             	inset 0 -15px 30px rgba(0,0,0,0.4),
+            			0 5px 10px rgba(0,0,0,0.5);	
+}
 /* ***text areas*** */
 #bluesearch{
 	position: relative;
@@ -81,91 +91,46 @@ html{
 	border-radius: 5px;
 	color: gray;
 	width: 170px;
-	height: 20px;
 }
 #username{
 	border-radius: 5px;
 	color: gray;
 	width: 170px;
-	height: 20px;
 }
 #password{
 	border-radius: 5px;
 	color: gray;
 	width: 170px;
-	height: 20px;
 	position: relative;
-	left: 7px;
+	left: 4px;
 }
 /* ***buttons*** */
 #bluesearchsubmit{
-	display: inline; 
-	margin: 0 5px; 
-	margin-left:20px; 
-	width: 10em; 
-	padding: 10px; 
-	border: 2px solid #EF2E32; 
 	position: relative;
-	top: 7px;
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #EF2E32;
-	background: white; 
-	font-weight: bold; 
-	-webkit-appearance: none; 
+	left: 50px;
+	background-color: white;
+	border-radius: 5px;
 
 }
 #teachbutton{
-	display: inline; 
-	margin: 0 5px; 
-	margin-left:20px; 
-	width: 10em; 
-	padding: 10px; 
-	position: relative;
-	top: 7px;
-	border: 2px solid #EF2E32; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #EF2E32;
-	background: white; 
-	font-weight: bold; 
-	-webkit-appearance: none; 
-}
-#signinbutton{
-	display: inline; 
-	margin: 0 5px; 
-	margin-left:20px; 
-	width: 10em; 
-	padding: 10px; 
-	position: relative;
-	top: 10px;
-	left: 70px;
-	border: 2px solid #06AFEF; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border-radius: 5px; 
-	-moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	-webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	box-shadow: 0 0 .5em rgba(0, 0, 0, .8); 
-	color: #06AFEF;
-	background: white; 
-	font-weight: bold; 
-	-webkit-appearance: none; 
-}
-#registerbutton{
 	position: relative;
 	left: 50px;
 	background-color: white;
 	height: 26px;
 	width: 90px;
+	border-radius: 5px;
+}
+#signinbutton{
+	float: right; 
+	background-color: white;
+	height: 26px;
+	width: 90px;
+	border-radius: 5px;
+}
+#registerbutton{
+	position: relative;
+	left: 50px;
+	background-color: white;
 	border-radius: 5px;
 }
 /* ***text*** */
@@ -193,28 +158,13 @@ html{
 }
 .blankDiv{
 	width: 30px;
-	height: 175px;
+	height: 125px;
 	background-color: none;
 }
 #tableDiv{
 	width: 715px;
 }
 
-/*css for second homepage idea*/
-#localwithPic{
-	height: 200px;
-	width: 230px;
-	background-image: url("images/monterey-oceanfront.jpg");
-	padding: 15px;
-	border-radius: 20px;
-}
-#globalwithPic{
-	height: 200px;
-	width: 230px;
-	background-image: url("images/earth-at-night.jpg");
-	padding: 15px;
-	border-radius: 20px;
-}
 a.fill-div {
     display: block;
     height: 80%;
