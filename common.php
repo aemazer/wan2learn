@@ -1,7 +1,7 @@
 <?php 
 function showHeader(){
 	echo '
-		<div id = "logoDiv"><img src="images/wan2learnlogoNew.png"></div>
+		<div id = "logoDiv"><a href = "index.php"><img src="images/wan2learnlogoNew.png"></a></div>
 		<div id = "linksDiv">
 			<p class="links">|<a href="contact.php">Contact</a>|<a href="help.php">Help</a>|<a href="cancellations.php">Cancellations</a>|<a href="faq.php">FAQs</a>|<a href="about.php">About</a>|<a href="register.php">Register</a>|</p>
 		</div>';
@@ -35,8 +35,11 @@ function showMainPage(){
 				<br />
 				<div id="loginbox">';
 
-					if(!isset($_POST['signIn'])){
+					if((!isset($_POST['signIn']))&&(!isset($_SESSION['username']))){
 						showSignInForm();
+					}
+					else if(isset($_SESSION['username'])){
+						showUserInfo();
 					}
 					else{
 						showUserInfo();
@@ -101,13 +104,23 @@ function showSignInForm(){
 }
 function showUserInfo(){
 	echo '
-		<a class = "label">Welcome Back!</a>
-		<p class = "text"><a href="dummypage.html">Edit Profile</a></p>
+		<form action = "' . $_SERVER['PHP_SELF'] . '" method = "post">
+			<a class = "label">Welcome Back!</a>
+			<p class = "text"><a href="dummypage.html">Edit Profile</a></p>
+			<input type = "submit" name = "logout" id = "logout" value = "Log out" />
+		</form>
 	';
+}
+function sessionLogout(){
+	if(!empty($_POST['logout']))
+	{
+		unset($_SESSION['username']);
+		header('Location: index.php');
+	}
 }
 function showHeaderLoggedIn($username){
 	echo '
-		<div id = "logoDiv"><img src="images/wan2learnlogoNew.png"></div>
+		<div id = "logoDiv"><a href = "index.php"><img src="images/wan2learnlogoNew.png"></a></div>
 		<div id = "linksDiv">
 			<p class="links">|<a href="contact.php">Contact</a>|<a href="help.php">Help</a>|<a href="cancellations.php">Cancellations</a>|<a href="faq.php">FAQs</a>|<a href="about.php">About</a>|Welcome, <a href="dummypage.html">' . $username . '</a>|</p>
 		</div>';

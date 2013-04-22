@@ -11,12 +11,19 @@
 <body>
 	<div id = "wrapper">
 		<?php
-		   	if(!empty($_POST['signIn'])){
+		   	if((!empty($_POST['signIn']))){
 				checkLogin();
+				showHeaderLoggedIn($_SESSION['username']);
+			}
+			else if(isset($_SESSION['username'])){
 				showHeaderLoggedIn($_SESSION['username']);
 			}
 			else{
 				showHeader();
+			}
+			if(!empty($_POST['logout'])){
+				unset($_SESSION['username']);
+				header('Location: index.php');
 			}
 	   		
 			showMainPage();
