@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE HTML>
 <head>
 	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
@@ -12,7 +13,7 @@
 		<?php
 		   	if(!empty($_POST['signIn'])){
 				checkLogin();
-				showHeaderLoggedIn();
+				showHeaderLoggedIn($_SESSION['username']);
 			}
 			else{
 				showHeader();

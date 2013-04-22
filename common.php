@@ -20,7 +20,8 @@ function showMainPage(){
 					<label for="bluesearch" class="label">I want to learn...</label>
 					<br />
 					<input type = "textarea" name = "search" value = "Search" id="bluesearch" />
-					<input type = "submit" value = ">>Teach Me!" id="bluesearchsubmit" />
+					<br />
+					<input type = "submit" value = "Teach Me!" id="bluesearchsubmit" />
 					<br />
 					<label for="teachbutton" class="label">I want to teach...</label>
 					<br />
@@ -95,7 +96,7 @@ function showSignInForm(){
 			<input type="password" maxlength="30" required name="password" id="password"/>
 			<input type="submit" value="Sign me in!" name="signIn" id = "signinbutton"/>
 			<br />
-			<a class ="text">Not registered? Sign up <a href="register.php">here</a>!</a>
+			<a class ="text">Not registered? Sign up <a href="register.php">here!</a></a>
 		</form>';
 }
 function showUserInfo(){
@@ -104,13 +105,11 @@ function showUserInfo(){
 		<p class = "text"><a href="dummypage.html">Edit Profile</a></p>
 	';
 }
-function showHeaderLoggedIn(){
-
-	$username=$_POST['username'];
+function showHeaderLoggedIn($username){
 	echo '
 		<div id = "logoDiv"><img src="images/wan2learnlogoNew.png"></div>
 		<div id = "linksDiv">
-			<p class="links">|<a href="dummypage.html">Contact</a>|<a href="dummypage.html">Help</a>|<a href="dummypage.html">Cancellations</a>|<a href="dummypage.html">FAQs</a>|<a href="dummypage.html">About</a>|Welcome, <a href="dummypage.html">' . $username . '</a>|</p>
+			<p class="links">|<a href="contact.php">Contact</a>|<a href="help.php">Help</a>|<a href="cancellations.php">Cancellations</a>|<a href="faq.php">FAQs</a>|<a href="about.php">About</a>|Welcome, <a href="dummypage.html">' . $username . '</a>|</p>
 		</div>';
 }
 function showRegistrationForm($server){
@@ -126,7 +125,7 @@ function showRegistrationForm($server){
 					<input type="text" id="lastname" maxlength="30" required autofocus name="lastname" /> 
 				</li> 
 				<li> 
-					<label for="e-mail">E-Mail Address: </label> 
+					<label for="email">E-Mail Address: </label> 
 					<input type="text" id="email" maxlength="50" required autofocus name="email" /> 
 				</li>
 				<li> 
@@ -206,10 +205,11 @@ function registerUser(){
 							echo 'E-mail address is already in use.';
 						}
 						else{
-							mysql_query("INSERT INTO users(email, username, password, firstname, lastname) VALUES ('$email', $username','$password','$firstname','$lastname')") or die(mysql_error());
-
+							mysql_query("INSERT INTO users(email, username, password, firstname, lastname) VALUES ('$email', '$username','$password','$firstname','$lastname')") or die(mysql_error());
+							sendEmail($email, $username, $firstname, $password);
 							
 							echo "User is now registered!";
+							header('Location: index.php');
 
 						}
 					}	
@@ -219,16 +219,14 @@ function registerUser(){
 		}
 	}
 }
-function sendEmail($email){
-		echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-        mail($email,'Welcome to Wan2Learn',
-					        "Thank you for joining Wan2Learn" . print_r($_POST,true),
-					        'From: amazer@csumb.edu');
-					        exit();
+function sendEmail($email, $username, $firstname, $password){
+	$subject = "Welcome to Wan2Learn!";
+	$message = "Welcome, ". $firstname ."! Thank you for joining us at Wan2Learn. We hope you're just as excited as us to get started, so just so you don't lose your information, here it is:
+	Username: ". $username ."
+	Password: ". $password."
+	We should get started! Teach Anything, Learn Anything.";
+    mail($email, $subject, $message, 'From: amazer@csumb.edu');
         
-        //echo "<h2>Form received and emailed. Thank you!</h2>";
 }
 function checkLogin(){
 	// username and password sent from form
@@ -256,12 +254,17 @@ function checkLogin(){
 
 	if($returnMe){
 		// Register $myusername, $password and redirect to file "admin page"
-		session_register("username");
-		session_register("password");
+		$_SESSION['username']=$username;
+		//$_SESSION['password']=$password;
+
+
 	}
 	else {
 		echo "Wrong Username or Password";
 	}
+}
+function profile($username){
+
 }
 function showAboutPage(){
 		echo'
@@ -269,7 +272,7 @@ function showAboutPage(){
 			<tr>
 				<td>
 					<div id="RickB">
-						<img src="/images/blankprofile.jpg" />
+						<img src="images/blankprofile.jpg" />
 					</div>
 				</td>
 				<td>
