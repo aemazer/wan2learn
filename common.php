@@ -165,7 +165,7 @@ function registerUser(){
 	//info sent from form
 	$email = $_POST['email'];
 	$username=$_POST['username'];
-	$password=$_POST['password'];
+	$password= sha1($_POST['password']);
 	$firstname=$_POST['firstname'];
 	$lastname=$_POST['lastname'];
 
