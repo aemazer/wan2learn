@@ -180,12 +180,8 @@ function registerUser(){
 	//info sent from form
 	$email = $_POST['email'];
 	$username=$_POST['username'];
-<<<<<<< HEAD
-	$password= $_POST['password'];
-=======
 	$password=$_POST['password'];
 	//
->>>>>>> sha1 in place and working
 	$firstname=$_POST['firstname'];
 	$lastname=$_POST['lastname'];
 	$username = stripslashes($username);
