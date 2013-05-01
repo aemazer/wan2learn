@@ -15,7 +15,6 @@
 			else{
 				showHeader();
 			}
-		
 
 			if (!empty($_FILES['photofile']['name'])) {
 				if (!is_uploaded_file($_FILES['photofile']['tmp_name'])) {
@@ -70,14 +69,14 @@
 
 				$query = "INSERT INTO images(username, photoname,phototype,
 				photodata,thumbwidth,thumbheight,thumbdata) 
-				VALUES ('" . $username . "', '" 
+				VALUES ('" . $_SESSION['username'] . "', '" .
 					addslashes($_FILES['photofile']['name']) . "',
 					'image/jpeg',
 					'" . mysql_real_escape_string($photodata) . "',
 					$newx,
 					$newy,
 					'" . mysql_real_escape_string($thumbdata) . "')";
-				// echo "Query: '$query'<br />";  	// DEBUG!!
+				//echo "Query: '$query'<br />";  	// DEBUG!!
 				mysql_query($query,$dblink) 
 					or die("Update query failed: $query " . mysql_error());
 				echo "<b>Photo upload of " . $_FILES['photofile']['name'] . 

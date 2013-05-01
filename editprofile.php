@@ -1,7 +1,7 @@
 <?php session_start();?>
 <!DOCTYPE HTML>
 <head>
-  <title>Help </title>
+  <title>Edit Profile</title>
 	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
 	<?php require 'common.php';?>
 </head>

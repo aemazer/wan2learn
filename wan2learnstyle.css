@@ -17,7 +17,7 @@ html, body{
 #logoDiv{
 	float: left;
 }
-#searchbox{
+#searchbox, #globalDiv{
 	padding: 15px;
 	height: 150px;
 	width: 300px;
@@ -29,12 +29,12 @@ html, body{
              0 5px 10px rgba(0,0,0,0.5);
 }
 #loginbox, #localDiv{
-	background-color: #EF2E32;
+	background-color: #D95724;
 	padding: 15px;
 	height: 150px;
 	width: 300px;
 	border-radius: 15px;
-	background-color: rgba(239,46,50, 1); 
+	background-color: rgba(217, 87, 36, 1); 
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
     	        inset 0 -15px 30px rgba(0,0,0,0.4),
              			0 5px 10px rgba(0,0,0,0.5);
@@ -46,26 +46,19 @@ html, body{
 	height: 800px;
 
 }
-#globalDiv{
-	height: 150px;
-	width: 300px;
-	padding: 15px;
-	border-radius: 15px;
-	background-color: rgba(6, 175, 239, 1); 
- 	box-shadow: inset 0 50px rgba(255,255,255,0), 
-             	inset 0 -15px 30px rgba(0,0,0,0.4),
-            			0 5px 10px rgba(0,0,0,0.5);
-}
 #linksDiv{
 	font-size: 11px;
 	position: relative;
 	left: 25px;
 }
-#profileDiv{
+#profileDiv, #editProfile{
+	position: relative;
 	height: 400px;
-	width: 200px;
-	float: left;
-	border: 1px solid black;
+	width: 350px;
+}
+#profilePhotoDiv{
+	height: 400px;
+	width: 215px;
 }
 
 #aboutdiv{
@@ -77,6 +70,11 @@ html, body{
  	box-shadow: inset 0 50px rgba(255,255,255,0), 
              	inset 0 -15px 30px rgba(0,0,0,0.4),
             			0 5px 10px rgba(0,0,0,0.5);	
+}
+.RickB{
+	height: 350px;
+	width: 300px;
+	background-repeat: no-repeat;
 }
 #cancelDiv{
 
@@ -112,35 +110,33 @@ html, body{
 	left: 4px;
 }
 /* ***buttons*** */
-#bluesearchsubmit{
-	position: relative;
-	left: 190px;
+input[type="button"], input[type="submit"]{
 	border-radius: 5px;
 	background-color: #D3D3D3;
 
 }
-#teachbutton{
+#bluesearchsubmit{
 	position: relative;
-	left: 150px;
-	border-radius: 5px;
-	background-color: #D3D3D3;
+	left: 190px;
+
+}
+#teachbutton{
+	display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 #signinbutton{
 	position: relative;
 	left: 180px; 
-	border-radius: 5px;
-	background-color: #D3D3D3;
 }
 #registerbutton{
 	position: relative;
 	left: 50px;
-	border-radius: 5px;
-	background-color: #D3D3D3;
 }
 /* ***text*** */
 .label{
 	color: white;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .text{
@@ -150,11 +146,11 @@ html, body{
 .largeText{
 	float: right;
 	color: white;
-	font-size: 30px;
+	font-size: 25px;
 	z-index: 1000;
 }
 #topText{
-	color: #06AFEF;
+	color: #245982;
 	font-size: 25px;
 	/*position: relative;
 	left: 50px;

@@ -10,14 +10,21 @@
 		require 'config.php';
 		require 'common.php';
 	?>
-	<title> Welcome to Wan2Learn! Teach Anything. Learn Anything. </title>
+	<title> Welcome to MettaLearn! Teach Anything. Learn Anything. </title>
 </head>
 <body>
 	<div id = "wrapper">
+		<table>
+			<tr>
 		<?php
 		   	if((!empty($_POST['signIn']))){
 				checkLogin();
+				if(isset($_SESSION['username'])){
 				showHeaderLoggedIn($_SESSION['username']);
+				}
+				else{
+					showHeader();
+				}
 			}
 			else if(isset($_SESSION['username'])){
 				showHeaderLoggedIn($_SESSION['username']);
@@ -29,8 +36,11 @@
 				unset($_SESSION['username']);
 				header('Location: index.php');
 			}
-	   		
+			echo '</tr>
+			<tr>';
 			showMainPage();
 		?>
+		</tr>
+</table>
 	</div>
 </body>

@@ -1,7 +1,7 @@
 <?php 
 function showHeader(){
 	echo '
-		<div id = "logoDiv"><a href = "index.php"><img src="images/wan2learnlogoNew.png"></a></div>
+		<div id = "logoDiv"><a href = "index.php"><img src="images/mettalearnlogo.png"></a></div>
 		<div id = "linksDiv">
 			<p class="links">|<a href="contact.php">Contact</a>|<a href="help.php">Help</a>|<a href="cancellations.php">Cancellations</a>|<a href="faq.php">FAQs</a>|<a href="about.php">About</a>|<a href = "register.php">Register</a>|</p>
 		</div>
@@ -18,13 +18,13 @@ function showMainPage(){
 			<td>
 				<br />
 				<div id="searchbox">
-					<label for="bluesearch" class="label">I want to learn...</label>
+					<a class="label">I want to learn...</a>
 					<br />
 					<input type = "textarea" name = "search" value = "Search" id="bluesearch" />
 					<br />
 					<input type = "submit" value = "Teach Me!" id="bluesearchsubmit" />
 					<br />
-					<label for="teachbutton" class="label">I want to teach...</label>
+					<a class="label">I want to teach...</a>
 					<br />
 					<input type = "button" value = "Let\'s Begin!" id="teachbutton">
 				</div>
@@ -40,17 +40,24 @@ function showMainPage(){
 						showSignInForm();
 					}
 					else if(isset($_SESSION['username'])){
-						showUserInfo();
+						if(isset($_SESSION['login'])){
+							showUserInfo();
+						}
+						else{
+							showSignInForm();
+						}
+
 					}
 					else{
 						showUserInfo();
+						//showSignInForm();
 					}
 			echo'
 						
 				</div>
 			</td>
 		</tr>
-		<th colspan = "3"><a id="topText">I want to learn from someone who is...</a></th>
+		<th colspan = "3"><br /><a id="topText">I want to learn from someone who is...</a><br /></th>
 		<tr>
 			<td>
 				<!--[if IE]>
@@ -114,14 +121,16 @@ function showUserInfo(){
 }
 function showHeaderLoggedIn($username){
 	echo '
-		<div id = "logoDiv"><a href = "index.php"><img src="images/wan2learnlogoNew.png"></a></div>
+		<div id = "logoDiv"><a href = "index.php"><img src="images/mettalearnlogo.png"></a></div>
 		<div id = "linksDiv">
 			<p class="links">|<a href="contact.php">Contact</a>|<a href="help.php">Help</a>|<a href="cancellations.php">Cancellations</a>|<a href="faq.php">FAQs</a>|<a href="about.php">About</a>|Welcome, <a href="profile.php">' . $username . '</a>|</p>
 		</div>';
 }
 function showRegistrationForm($server){
 	echo'
+	
 		<form action = "' . $server . '" method = "post">
+		<div id="register-wrapper">
 			<ul> 
 				<li> 
 					<label for="firstname">First Name : </label> 
@@ -152,23 +161,38 @@ function showRegistrationForm($server){
 					<input type="password" id="conpasswd" maxlength="30" required name="conpassword" />
 								
 				</li> 
-								
-					<li class="buttons"> <input type="submit" id = "submit" name="register" value="Register" /> 
-					<input type="button" name="cancel" value="Cancel" onclick="location.href=\'homepage.php\'" /> 
-								
-				</li> 
 			</ul> 
-		</form> ';
+		</div>
+			<br />
+		<div>
+			<ul> 
+			<li class="buttons"> 
+				<input type="submit" id = "submit" name="register" value="Register" /> 
+				<input type="button" name="cancel" value="Cancel" onclick="location.href=\'homepage.php\'" /> 
+			</li> 
+			</ul> 
+		</form> 
+	</div>
+	';
 }
 function registerUser(){
 	require 'config.php';
 	//info sent from form
 	$email = $_POST['email'];
 	$username=$_POST['username'];
+<<<<<<< HEAD
 	$password= $_POST['password'];
+=======
+	$password=$_POST['password'];
+	//
+>>>>>>> sha1 in place and working
 	$firstname=$_POST['firstname'];
 	$lastname=$_POST['lastname'];
-
+	$username = stripslashes($username);
+	$password = stripslashes($password);
+	$username = mysql_real_escape_string($username);
+	$password = mysql_real_escape_string($password);
+	$password = sha1($password);
 	if(isset($_POST['firstname'])&&isset($_POST['lastname']))
 	{
 		$query = "SELECT *
@@ -215,6 +239,7 @@ function registerUser(){
 							mysql_query("INSERT INTO users(email, username, password, firstname, lastname) VALUES ('$email', '$username','$password','$firstname','$lastname')") or die(mysql_error());
 							sendEmail($email, $username, $firstname, $password);
 							$_SESSION['username']=$username;
+							$_SESSION['registered']=1;
 							echo "User is now registered!";
 							header('Location: createprofile.php');
 
@@ -237,16 +262,15 @@ function sendEmail($email, $username, $firstname, $password){
 }
 function checkLogin(){
 	// username and password sent from form
-		$username=$_POST['username'];
-		$password=$_POST['password'];
-
-
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+		
 	//To protect MySQL injection (more detail about MySQL injection)
 	$username = stripslashes($username);
 	$password = stripslashes($password);
 	$username = mysql_real_escape_string($username);
 	$password = mysql_real_escape_string($password);
-
+	$password=sha1($password);
 	$sql="SELECT * 
 	FROM users 
 	WHERE users.username='" . $username . "' AND users.password='" . $password . "'";
@@ -260,14 +284,14 @@ function checkLogin(){
 	// If result matched $myusername and $password, table row must be 1 row
 
 	if($returnMe){
-		// Register $myusername, $password and redirect to file "admin page"
+		// Register session variable to be passed to login and functions needed
 		$_SESSION['username']=$username;
+		$_SESSION['login']=1;
 		//$_SESSION['password']=$password;
-
-
 	}
 	else {
 		echo "Wrong Username or Password";
+		unset($_SESSION['username']);
 	}
 }
 function profile($username){
@@ -281,9 +305,9 @@ function profile($username){
 			or die ("Query failed." + mysql_error());
 
 	while ($line = mysql_fetch_assoc($result)) {
-		echo ' <div id = "profileDiv"> <p>Name: ' .$line['firstname'] . ' ' . $line['lastname']
+		echo '<table> <tr><td> <div id = "profileDiv"> <p>Name: ' .$line['firstname'] . ' ' . $line['lastname']
 		. ' </p> <p> E-mail: ' . $line['email'] . '</p>'
-		. '<p> About Me: </p> <p>I am a: '. (($line['type'] == 'T') ? "Teacher" : "Student") . ', ' . (($line['type']=='S') ? "Student" : "Teacher") . ' </p> <p>I am interested in: '. $line['subjects'] . '  <p>' . $line['about'] . '</p> </div>';
+		. '<p> About Me: </p> <p>I am a: '. (($line['type'] == 'T') ? "Teacher" : "Student") . ', ' . (($line['type']=='S') ? "Student" : "Teacher") . ' </p> <p>I am interested in: '. $line['subjects'] . '  <p>' . $line['about'] . '</p> </div></td>';
 	}
 	
 	$query = "SELECT id,photoname,thumbwidth,thumbheight 
@@ -293,10 +317,10 @@ function profile($username){
 	$result = mysql_query($query, $dblink)
 		or die ("Query failed." + mysql_error());
 	while ($line = mysql_fetch_assoc($result)) {
-	echo '<a href="showphoto.php?ID=' . $line['id'] . '"><img src="showphoto.php?ID=' . $line['id'] . '&type=t" width="' .
-		$line['thumbwidth'] . '" height="' . $line['thumbheight'] . '" /></a>';
+	echo '<td><div id="profilePhotoDiv"><a href="showphoto.php?ID=' . $line['id'] . '"><img src="showphoto.php?ID=' . $line['id'] . '&type=t" width="' .
+		$line['thumbwidth'] . '" height="' . $line['thumbheight'] . '" /></a><br />';
 	}
-	echo '<a href = "editPhoto.php">Change Photo </a>';
+	echo '<a href = "editPhoto.php">Change Photo </a></div></td></tr></table>';
 	/*
 
 	$query = 'select username,photoname,phototype,' .
@@ -351,11 +375,15 @@ function editProfile($username){
 
 	$result = mysql_query($query, $dblink)
 		or die ("Query failed.");
-	
 	while($line = mysql_fetch_assoc($result)){
 		echo '
+			<br />
+			<p>Edit your information:<p/>
+
 		<form action = "' . $_SERVER['PHP_SELF'] . '" method = "post">
 			<div id = "editProfile">
+			<br />
+
 				<input type = "checkbox" name = "type[]" value="T" />Teacher <br />
 				<input type = "checkbox" name = "type[]" value="S" />Student <br />
 
@@ -494,12 +522,16 @@ function showAboutPage(){
 			<tr>
 				<td>
 					<div id="RickB">
-						<img src="images/blankprofile.jpg" />
+						<img src="images/rickBrandley.jpg" />
 					</div>
 				</td>
 				<td>
 					<div id="aboutdiv">
-						<p class = "text"> Wan2Learn is a website dedicated to connecting teachers with students. Any one with a skill or talent who wants to share it can create a Teacher profile and offer their talents to prospective students. Wan2Learn is all about making that connection between the teacher and student. We know it can be hard sometimes to find the right teacher, but not any more! Wan2Learn makes it easy to browse through the different subjects being taught and to make an appointment with a teacher!</p>
+						<p class = "text"> MettāLearn. </p>
+						<p class = "text">Mettā.  One of the ten perfections from the school of Buddhism. Loving-kindness, friendliness, benevolence, amity, friendship, good will, close mental union (same mental wavelength), active interest in others. </p>
+						<p class = "text">Learn.  Acquisition of knowledge or skills through experience, practice, study, or by being taught. </p> 
+						<p class = "text">Mission Statement</p>
+						<p class = "text">MettāLearn’s mission is to connect students and instructors. </p>
 					</div>
 				</td>
 			</tr>
@@ -508,41 +540,106 @@ function showAboutPage(){
 }
 function showCancellationsPage(){
 	echo '
-		<div id="cancelDiv">
-			<H2>Cancellations and Notifications of Teachers</H2>
-			<p>If you are unable to make an appointment and would like to reschedule, we can help! 
-			</p>
-		</div>';
+	<br />
+	<br />
+	<div id="cancelDiv">
+		<H2>Cancellations and Notifications of Teachers</H2>
+		<p>If you are unable to make an appointment and would like to reschedule, we can help! </p>
+	</div>';
 }
 function showContactPage(){
 	echo'
-		<div id = "contactDiv">
-			<h2> Contact Information</h2>
-			<p id="paddingdiv"> Here we will give the contact information of the people who will be able to answer your questoins. It will be coming soon!</p>
-		</div>
+	<br />
+	<br />
+	<table>	
+		<tr>
+				<td>
+					<div class="RickB">
+						<img src="images/rickBrandley.jpg" />
+					</div>
+				</td>
+				<td>
+					<div id = "contactDiv">
+						<h2> Contact Information</h2>
+						<p> Rick Brandley</p>
+						<p>rbrandley@csumb.edu</p>
+						<p>(626) 644-1345</p>
+					</div>
+				</td>
+			</tr>
+		</table>
 	';
 
 }
 function showFAQPage(){
 	echo '
 		<div id="FAQ">
-			<H2>Frequentyl Asked Questions</H2>
+			<br />
+			<br />
+			<H2>Frequently Asked Questions</H2>
 			<p>Here we will try to answer some of the most frequently asked questions by our users.</p>
-			<p><a href="">Who can register?</a></p>
-			<p><a href="">How can I become a teacher on Wan2Learn?</a></p>
-			<p><a href="">How can I become a student on Wan2Learn?</a></p>
-			<p><a href="">How can I make an appointment?</a></p>
-			<p><a href="">How can I cancel an appointment?</a></p>
-			<p><a href="">Do I have to meet in person with the teacher?</a></p>
-			<p><a href="">How do I pay my teacher?</a></p>
-			<p><a href="">Can I register as both a teacher and a student?</a></p>
+			<p><a href="#q1">How much does it cost to create a profile?</a></p>
+			<p><a href="#q2">What can I learn on MettāLearn?</a></p>
+			<p><a href="#q3">Where do MettāLearn instructors come from?</a></p>
+			<p><a href="#q4">Where do classes take place?</a></p>
+			<p><a href="#q5">Who can register?</a></p>
+			<p><a href="#q6">How can I become a teacher on MettaLearn?</a></p>
+			<p><a href="#q7">How can I become a student on MettaLearn?</a></p>
+			<p><a href="#q8">How can I make an appointment?</a></p>
+			<p><a href="#q9">How can I cancel an appointment?</a></p>
+			<p><a href="#q10">Do I have to meet in person with the teacher?</a></p>
+			<p><a href="#q11">How do I pay my teacher?</a></p>
+			<p><a href="#q12">Can I register as both a teacher and a student?</a></p>
+			<br />
+			<br />
+			<br />
+
+			
+			<p id = "q1">How much does it cost to create a profile?</p>
+			<p>Absolutely free, does not cost anything. </p>
+			<br />
+			<p id = "q2">What can I learn on MettāLearn?</p>
+			<p>MettāLearn is striving to be a place where students can find instructors for any and all subjects. This includes sports, school subjects, languages, instruments, and anything else you can think of.</p> 
+			<br/>
+			<p id = "q3">Where do MettāLearn instructors come from?</p>
+			<p>MettāLearn instructors can come from anywhere. MettāLearn instructors can come from anywhere.</p>
+			<br />
+			<p id = "q4">Where do classes take place?</p>
+			<p>Classes can take place in-person or online. Every case is different.</p>
+			<br />
+			<p id = "q5">Who can register?</p>
+			<p>Anyone who is looking to learn something new, or teach something they know. </p>
+			<br />
+			<p id = "q6">How can I become a teacher on MettaLearn?</p>
+			<p>Register! When you register, all you have to do to become a teacher is check the box on your profile that says "Teacher". </p>
+			<br />
+			<p id = "q7">How can I become a student on MettaLearn?</p>
+			<p>Register! When you register, all you have to do to become a student is check the box on your profile that says "Student". </p>
+			<br />
+			<p id = "q8">How can I make an appointment?</p>
+			<p>For now, it is best to contact your instructor by e-mail. We will let you know as this changes and becomes easier for everyone.</p>
+			<br />
+			<p id = "q9">How can I cancel an appointment?</p>
+			<p>For now, it is best to contact your instructor by e-mail. We will let you know as this changes and becomes easier for everyone.</p>
+			<br />
+			<p id = "q10">Do I have to meet in person with the teacher?</p>
+			<p>Generally now, but each case is different depending on the instructor. The beauty of MettaLearn is that you can contact the instructor you are looking for and design the best meeting environment for the both of you, whether that be in person, online, by phone or a mix.</p>
+			<br />
+			<p id = "q11">How do I pay my teacher?</p>
+			<p>To pay your intstructor, we have a convienient payment method provided by PayPal. This ensures that everyone follows the rules and your instructors get paid!</p>
+			<br />
+			<p id = "q12">Can I register as both a teacher and a student?</p>
+			<p>Of course! In fact, we encourage you to. Simply check both boxes labeled "Student" and "Teacher" on your profile.</p>
+			<br />
 		</div>';
 }
 function showHelpPage(){
 	echo '
+	<br />
+	<br />
 		<div id="helpdiv">
 			<H2>Help Forums Page</H2>
-			<p>Here you can post and search forums for questions about topics of Wan2Learn. 
+			<p>Here you can post and search forums for questions about topics of Mettālearn. 
 			</p>
 		</div>';
 }

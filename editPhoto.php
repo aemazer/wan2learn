@@ -1,7 +1,7 @@
 <?php session_start();?>
 <!DOCTYPE HTML>
 <head>
-  <title>Help </title>
+  <title>Change your Photo</title>
 	<link rel="stylesheet" type="text/css" href="wan2learnstyle.css" />
 	<?php require 'common.php';?>
 </head>
@@ -115,12 +115,12 @@
 				. '\' WHERE ';
 				/*$query = "INSERT INTO images(photoname,
 				photodata,thumbwidth,thumbheight,thumbdata) 
-				VALUES ('" . 
-					addslashes($_FILES['photofile']['name']) . "',
-					'" . mysql_real_escape_string($photodata) . "',
+				VALUES ('. 
+					addslashes($_FILES['photofile']['name']) . ',
+					' . mysql_real_escape_string($photodata) . ',
 					$newx,
 					$newy,
-					'" . mysql_real_escape_string($thumbdata) . "')";
+					' . mysql_real_escape_string($thumbdata) . ')";
 
 				$query = "UPDATE images
 				SET photoname ='" . addslashes($_FILES['photofile']['name']) . "', photodata='" . mysql_real_escape_string($photodata) . "', thumbwidth = '" .$newx . "', thumbheight = '".$newy."', thumbdata='" . mysql_real_escape_string($thumbdata) . "'

@@ -15,7 +15,7 @@
 			else{
 				showHeader();
 			}
-			showFAQPage();
+			showHelpPage();
 		?>
 	</div>
 </body>
